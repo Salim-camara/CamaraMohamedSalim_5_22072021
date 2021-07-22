@@ -1,0 +1,11 @@
+{
+  "name": "front-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass_accueil": "sass --watch ./sass/main.scss:./css/accueil.css"
+  },
+  "author": "",
+  "license": "ISC"
+}
