@@ -23,13 +23,20 @@ fetch(url).then((response) =>
 
         cards.innerHTML = `<div class="card">
         <span class="card--bg"></span>
+        <img src="" class="essaie"/>
         <div class="card__second">
             <h3 class="card__second--h3">${data[0].name}</h3>
-            <span class="card__second--desc">Description: Lorem ipsum dolor sit amet, consecteLorem ipsum dolor sit amet, consecteLorem ipsum dolor sit amet, consecte</span>
-            <span class="card__second--prix">prix: 2049 euros</span>
+            <span class="card__second--desc">Description: ${data[0].description}</span>
+            <span class="card__second--prix">prix: ${data[0].price} euros</span>
         </div>
         <button class="card--button">Ajouter au panier</button>
-    </div>`
+    </div>`;
+
+        let test = document.querySelector('.card--bg');
+
+        console.log(test);
+
+        test.style.backgroundImage = `url('${data[1].imageUrl}')`;
     }));
 
 

@@ -95,7 +95,8 @@ main {
 .card--bg {
   width: 100%;
   height: 100px;
-  background-color: coral;
+  background-image: transparent;
+  background-position: center;
 }
 .card__second {
   display: flex;
