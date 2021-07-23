@@ -1,0 +1,36 @@
+footer {
+    @include dsc(center);
+    width: 100%;
+    background-color: $tertiary-color;
+    color: $primary-color;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    &::after {
+        height: 20px;
+        width: 20px;
+        background-color: coral;
+    }
+}
+
+.reseaux {
+    @include dsf(center);
+    width: 100%;
+    font-size: 35px;
+    margin-bottom: 30px;
+
+    &--fb {
+        margin-right: 10px;
+    }
+    &--insta {
+        margin-right: 10px;
+    }
+}
+
+.contact {
+    @include dsc();
+    
+    &--p {
+        margin: 10px 0 0 0;
+    }
+}
