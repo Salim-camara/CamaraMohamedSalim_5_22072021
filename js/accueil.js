@@ -13,22 +13,27 @@ window.addEventListener('scroll', () => {
 
 
 
+
+
 // ******************************API cards*************************
 
 
 let url = 'http://localhost:3000/api/cameras';
 let cards = document.querySelector('.container');
+let loader = document.querySelector('.loader');
 
 // Appel de l'API
 fetch(url).then((response) =>
     response.json().then((data) => {
+
+        // Supperssion du loader
+        loader.style.display = "none";
 
         // Ajout de la boucle
         for (let i = 0; i < data.length; i++) {
 
             // Suppression des 0 à la fin des prix
             let prix = `${data[i].price}`.slice(0, -2);
-
 
             // Création de l'HTML
             let card = document.createElement('div');
@@ -50,11 +55,21 @@ fetch(url).then((response) =>
 )
 // En cas de problème
 ).catch((erreur) => {
+
+    // Suppression du spin loader
+    loader.style.display = "none";
+
     let messErreur = document.createElement('p');
     messErreur.classList.add('erreur');
     cards.appendChild(messErreur);
     messErreur.innerHTML = `Oupsss...</br></br> Une erreur s'est produite au niveau du serveur.</br></br> Nature du problème -> ${erreur}`;
 });
+
+
+
+
+
+
 
 
 

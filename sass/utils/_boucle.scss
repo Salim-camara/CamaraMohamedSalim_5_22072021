@@ -1,0 +1,8 @@
+// bounce
+
+@for $i from 1 to 4 {
+    
+    .loader#{$i} {
+        animation-delay: $i*0.1s;
+    }
+}

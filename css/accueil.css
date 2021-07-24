@@ -1,3 +1,29 @@
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-7px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.loader1 {
+  animation-delay: 0.1s;
+}
+
+.loader2 {
+  animation-delay: 0.2s;
+}
+
+.loader3 {
+  animation-delay: 0.3s;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -150,6 +176,27 @@ h2 {
   text-align: center;
   color: red;
   font-family: raleway-bold;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-items: baseline;
+  color: #353B3C;
+  font-family: raleway-bold;
+  font-size: 30px;
+  animation-iteration-count: infinite;
+}
+.loader--p {
+  margin-right: 5px;
+}
+.loader--point {
+  margin-right: 5px;
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 footer {

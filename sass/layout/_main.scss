@@ -76,4 +76,31 @@ h2 {
     font-family: raleway-bold;
 }
 
+// loader
+
+
+.loader {
+    @include dsf(center);
+    align-items: baseline;
+    color: $tertiary-color;
+    font-family: raleway-bold;
+    font-size: 30px;
+    animation-iteration-count: infinite;
+
+    &--p {
+        margin-right: 5px;
+    }
+    &--point {
+        margin-right: 5px;
+
+        animation-name: bounce;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+
+    }
+}
+
+
+
 
