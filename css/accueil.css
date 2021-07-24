@@ -32,15 +32,15 @@ body {
 
 @font-face {
   font-family: logo;
-  src: url("../../fonts/RockSalt-Regular.ttf");
+  src: url("../fonts/RockSalt-Regular.ttf");
 }
 @font-face {
   font-family: raleway;
-  src: url("../../fonts/Raleway-Regular.ttf");
+  src: url("../fonts/Raleway-Regular.ttf");
 }
 @font-face {
   font-family: raleway-bold;
-  src: url("../../fonts/Raleway-Bold.ttf");
+  src: url("../fonts/Raleway-Bold.ttf");
 }
 body {
   font-family: raleway;
@@ -87,7 +87,7 @@ header {
   align-items: flex-start;
   align-items: center;
   width: 100%;
-  background-image: url("../../img/header_filter.jpg");
+  background-image: url("../img/header_filter.jpg");
   background-position: center;
   color: white;
   height: 600px;
