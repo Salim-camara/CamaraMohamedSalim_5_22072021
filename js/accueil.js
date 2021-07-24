@@ -1,4 +1,4 @@
-// *************************Animation navbar
+// *************************Animation navbar**********************
 
 const navigation = document.querySelector('.top_bar');
 
@@ -12,32 +12,45 @@ window.addEventListener('scroll', () => {
 });
 
 
-// ******************************API cards
+
+// ******************************API cards*************************
+
 
 let url = 'http://localhost:3000/api/cameras';
 let cards = document.querySelector('.container');
-
+// Appel de l'API
 fetch(url).then((response) =>
     response.json().then((data) => {
-        console.log(data);
+        console.log(data.length);
+        for (let i = 0; i < 5; i++) {
 
-        cards.innerHTML = `<div class="card">
-        <span class="card--bg"></span>
-        <img src="" class="essaie"/>
-        <div class="card__second">
-            <h3 class="card__second--h3">${data[0].name}</h3>
-            <span class="card__second--desc">Description: ${data[0].description}</span>
-            <span class="card__second--prix">prix: ${data[0].price} euros</span>
-        </div>
-        <button class="card--button">Ajouter au panier</button>
-    </div>`;
+            let card = document.createElement('div');
+            card.classList.add('card');
+            cards.appendChild(card);
+            card.innerHTML = '<strong>bonjour</strong>';
 
-        let test = document.querySelector('.card--bg');
 
-        console.log(test);
 
-        test.style.backgroundImage = `url('${data[1].imageUrl}')`;
-    }));
+
+
+
+        let saucisse = document.createElement('div');
+        saucisse.id = "salut";
+        
+        let node = document.createTextNode('');
+
+        saucisse.appendChild(node);
+
+        cards.appendChild(saucisse);
+
+        saucisse.innerHTML = "bonjour je suis moche";
+
+
+    }
+}
+)
+);
+
 
 
 
