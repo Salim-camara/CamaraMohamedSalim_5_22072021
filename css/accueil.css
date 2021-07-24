@@ -74,12 +74,19 @@ main {
   justify-content: flex-start;
   align-items: center;
   margin-top: 600px;
-  height: 1000px;
   width: 100%;
 }
 
 .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
   width: 100%;
+}
+
+h2 {
+  margin: 40px 0 40px 0;
 }
 
 .card {
@@ -87,16 +94,19 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30%;
-  height: 300px;
-  padding: 10px;
+  width: 25%;
+  padding: 5px;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #C6C7C4;
+  margin-bottom: 80px;
 }
 .card--bg {
   width: 100%;
-  height: 100px;
-  background-image: transparent;
+  height: 300px;
+  border-radius: 5px 5px 5px 5px;
   background-position: center;
+  background-size: cover;
 }
 .card__second {
   display: flex;
@@ -123,7 +133,23 @@ main {
   font-family: raleway-bold;
   font-size: 20px;
   border: none;
+  border-radius: 5px 5px 5px 5px;
   color: white;
+  margin-bottom: 10px;
+  transform: scale(1);
+  transition: all 0.15s linear;
+}
+.card--button:hover {
+  background-color: white;
+  border: 2px solid #A2999E;
+  color: #A2999E;
+  transform: scale(1.05);
+}
+
+.erreur {
+  text-align: center;
+  color: red;
+  font-family: raleway-bold;
 }
 
 footer {

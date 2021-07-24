@@ -4,7 +4,7 @@ const NAVIGATION = document.querySelector('.top_bar');
 
 window.addEventListener('scroll', () => {
 
-    if(window.scrollY > 600) {
+    if(window.scrollY > 500) {
         NAVIGATION.classList.add('top_bar_bg');
     }else {
         NAVIGATION.classList.remove('top_bar_bg');
@@ -37,8 +37,8 @@ fetch(url).then((response) =>
             card.innerHTML = `<span class="card--bg cardbg--${i}"></span>
             <div class="card__second">
                 <h3 class="card__second--h3">${data[i].name}</h3>
-                <span class="card__second--desc">Description: ${data[i].description}</span>
-                <span class="card__second--prix">prix: ${prix} euros</span>
+                <span class="card__second--desc"><strong>Description</strong> : ${data[i].description}</span>
+                <span class="card__second--prix"><strong>prix</strong> : ${prix} <strong>€</strong></span>
             </div>
             <button class="card--button">Ajouter au panier</button>`;
 
@@ -48,7 +48,14 @@ fetch(url).then((response) =>
             spanBg.style.backgroundImage = `url('${data[i].imageUrl}')`; }
 }
 )
-);
+// En cas de problème
+).catch((erreur) => {
+    let messErreur = document.createElement('p');
+    messErreur.classList.add('erreur');
+    cards.appendChild(messErreur);
+    messErreur.innerHTML = `Oupsss...</br></br> Une erreur s'est produite au niveau du serveur.</br></br> Nature du problème -> ${erreur}`;
+});
+
 
 
 
