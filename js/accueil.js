@@ -22,13 +22,13 @@ let cards = document.querySelector('.container');
 // Appel de l'API
 fetch(url).then((response) =>
     response.json().then((data) => {
-        console.log(data.length);
+
+        // Ajout de la boucle
         for (let i = 0; i < data.length; i++) {
 
-            // Ajout du point dans les prix
-            console.log(data[i].price);
-            let prix = data[i].price;
-            console.log(prix.number.length);
+            // Suppression des 0 à la fin des prix
+            let prix = `${data[i].price}`.slice(0, -2);
+
 
             // Création de l'HTML
             let card = document.createElement('div');
@@ -38,18 +38,14 @@ fetch(url).then((response) =>
             <div class="card__second">
                 <h3 class="card__second--h3">${data[i].name}</h3>
                 <span class="card__second--desc">Description: ${data[i].description}</span>
-                <span class="card__second--prix">prix: ${data[i].price} euros</span>
+                <span class="card__second--prix">prix: ${prix} euros</span>
             </div>
             <button class="card--button">Ajouter au panier</button>`;
 
 
             // Background-image
             let spanBg = document.querySelector(`.cardbg--${i}`);
-            spanBg.style.backgroundImage = `url('${data[i].imageUrl}')`;
-            
-
-
-    }
+            spanBg.style.backgroundImage = `url('${data[i].imageUrl}')`; }
 }
 )
 );
