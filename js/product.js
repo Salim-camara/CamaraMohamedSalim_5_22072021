@@ -50,25 +50,29 @@ fetch(url).then((response) =>
 
         // Obtention de l'index de la lentille
         let select = document.querySelector('.card__second--select');
-        let index = null;
+        let index = -1;
         let err = document.createElement('p');
         err.classList.add('erreur');
+        let button = document.querySelector('button');
+
         select.addEventListener('change', () => {
             err.remove();
-            index = `${select.selectedIndex} ` - 2;
-
-            // condition
-            if (index == -2 || index == -1) {
-                let endCard = document.querySelector('.card__second');
-                err.innerHTML = 'Veuillez choisir un objectif';
-                endCard.appendChild(err);
-
-            } else {
-                console.log(index);
-            };
+            index = `${select.selectedIndex} `- 2;
         });
-
-
+        // Ecoute du clique
+        button.addEventListener('click', () => {
+            console.log(index);
+                // condition
+                if (index == -2 || index == -1) {
+                    let endCard = document.querySelector('.card__second');
+                    err.innerHTML = 'Veuillez choisir un objectif';
+                    endCard.appendChild(err);
+                } else {
+                    alert('ça marche!');
+                }
+            });
+        
+        
         // Background-image
         let spanBg = document.querySelector(`.card--bg`);
         spanBg.style.backgroundImage = `url('${data.imageUrl}')`;
