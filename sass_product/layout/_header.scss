@@ -1,0 +1,45 @@
+header {
+    width: 100%;
+}
+
+.top_bar{
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    @include dsf(space-between);
+    padding-right: 50px;
+    color: $tertiary-color;
+    background-color: transparent;
+
+    transition: all 0.5s;
+
+    &--title {
+        font-family: logo;
+        font-size: 30px;
+        margin: 20px 0 0 50px;
+    }
+    &--icon {
+        font-size: 30px;
+        margin: 30px 50px 0 0;
+    }
+}
+
+.top_bar_bg {
+    background-color: white;
+    color: $tertiary-color;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.header_container {
+    position: absolute;
+    top: 0;
+    @include dsf(center);
+    align-items: center;
+    width: 100%;
+    background-image: url('../img/header_filter.jpg');
+    background-position: center;
+    color: white;
+    height: 600px;
+    z-index: auto;
+}
