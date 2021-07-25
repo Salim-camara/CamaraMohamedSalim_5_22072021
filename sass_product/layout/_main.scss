@@ -1,3 +1,114 @@
 main {
-    height: 2000px;
+    @include dsf(center);
+    margin-top: 150px;
+}
+
+.container {
+    @include dsf(space-around);
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+h2 {
+    margin: 40px 0 40px 0;
+}
+
+.card {
+    @include dsc(center);
+    width: 25%;
+    padding: 5px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: $secondary-color;
+    margin-bottom: 80px;
+
+    &--bg {
+        width: 100%;
+        height: 300px;
+        border-radius: 5px 5px 5px 5px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    &__second {
+        @include dsc();
+        align-items: flex-start;
+        width: 70%;
+        margin-bottom: 30px;
+
+        &--h3 {
+            width: 100%;
+            text-align: center;
+            font-family: raleway-bold;
+            margin-bottom: 20px;
+        }
+        &--desc {
+            margin-bottom: 20px;
+        }
+        &--prix {
+            margin-bottom: 20px;
+        }
+        &--select {
+            width: 100%;
+            height: 50px;
+            font-family: raleway-bold;
+            font-size: 15px;
+            border: 2px solid white;
+            color: white;
+            background-color: $primary-color;
+        }
+
+    }
+    &--button {
+        background-color: $primary-color;
+        width: 80%;
+        height: 40px;
+        font-family: raleway-bold;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px 5px 5px 5px;
+        color: white;
+        margin-bottom: 10px;
+
+        transform: scale(1);
+        transition: all 0.15s linear;
+
+        &:hover {
+            background-color: white;
+            border: 2px solid $primary-color;
+            color: $primary-color;
+            transform: scale(1.05);
+        }
+    }
+}
+
+.erreur {
+    text-align: center;
+    color: red;
+    font-family: raleway-bold;
+}
+
+// loader
+
+
+.loader {
+    @include dsf(center);
+    align-items: baseline;
+    color: $tertiary-color;
+    font-family: raleway-bold;
+    font-size: 30px;
+    animation-iteration-count: infinite;
+
+    &--p {
+        margin-right: 5px;
+    }
+    &--point {
+        margin-right: 5px;
+
+        animation-name: bounce;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+
+    }
 }

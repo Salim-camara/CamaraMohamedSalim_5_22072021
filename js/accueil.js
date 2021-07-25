@@ -22,6 +22,7 @@ let url = 'http://localhost:3000/api/cameras';
 let cards = document.querySelector('.container');
 let loader = document.querySelector('.loader');
 
+
 // Appel de l'API
 fetch(url).then((response) =>
     response.json().then((data) => {
@@ -45,7 +46,7 @@ fetch(url).then((response) =>
                 <span class="card__second--desc"><strong>Description</strong> : ${data[i].description}</span>
                 <span class="card__second--prix"><strong>prix</strong> : ${prix} <strong>€</strong></span>
             </div>
-            <button class="card--button">Ajouter au panier</button>`;
+            <a href="product.html#${data[i]._id}" class="card--button"> <button class="card--button">Acheter</button> </a>`;
 
 
             // Background-image

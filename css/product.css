@@ -69,7 +69,118 @@ header {
 }
 
 main {
-  height: 2000px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 150px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+h2 {
+  margin: 40px 0 40px 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  padding: 5px;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #C6C7C4;
+  margin-bottom: 80px;
+}
+.card--bg {
+  width: 100%;
+  height: 300px;
+  border-radius: 5px 5px 5px 5px;
+  background-position: center;
+  background-size: cover;
+}
+.card__second {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-items: flex-start;
+  width: 70%;
+  margin-bottom: 30px;
+}
+.card__second--h3 {
+  width: 100%;
+  text-align: center;
+  font-family: raleway-bold;
+  margin-bottom: 20px;
+}
+.card__second--desc {
+  margin-bottom: 20px;
+}
+.card__second--prix {
+  margin-bottom: 20px;
+}
+.card__second--select {
+  width: 100%;
+  height: 50px;
+  font-family: raleway-bold;
+  font-size: 15px;
+  border: 2px solid white;
+  color: white;
+  background-color: #A2999E;
+}
+.card--button {
+  background-color: #A2999E;
+  width: 80%;
+  height: 40px;
+  font-family: raleway-bold;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px 5px 5px 5px;
+  color: white;
+  margin-bottom: 10px;
+  transform: scale(1);
+  transition: all 0.15s linear;
+}
+.card--button:hover {
+  background-color: white;
+  border: 2px solid #A2999E;
+  color: #A2999E;
+  transform: scale(1.05);
+}
+
+.erreur {
+  text-align: center;
+  color: red;
+  font-family: raleway-bold;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-items: baseline;
+  color: #353B3C;
+  font-family: raleway-bold;
+  font-size: 30px;
+  animation-iteration-count: infinite;
+}
+.loader--p {
+  margin-right: 5px;
+}
+.loader--point {
+  margin-right: 5px;
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 footer {
