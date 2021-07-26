@@ -1,0 +1,69 @@
+// Titre et panier
+
+.panier {
+    @include dsc();
+    align-items: center;
+    background-color: $tertiary-color;
+    color: white;
+    padding: 10px;
+    margin-bottom: 60px;
+    border-radius: 10px 10px 10px 10px;
+    width: 60%;
+
+    &--title {
+        margin-bottom: 0px;
+    }
+
+    &--content {
+        width: 100%;
+        @include dsf(space-between);
+    }
+
+    &--line {
+        background-color: $primary-color;
+        width: 100%;
+        height: 2px;
+        margin-bottom: 20px;
+    }
+
+}
+
+.buttons {
+    @include dsf(space-between);
+    width: 100%;
+
+}
+
+.panier--empt {
+    border: none;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+    height: 40px;
+    font-size: 20px;
+    width: 35%;
+    border: 2px solid darken(red, 15%);
+}
+
+.panier--confirm {
+    border: none;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+    height: 40px;
+    font-size: 20px;
+    width: 60%;
+    border: 2px solid green;
+
+}
+
+.panier--elt {
+    @include dsc();
+    width: 100%;
+}
+
+.product {
+    @include dsf(space-between);
+    width: 100%;
+    margin-bottom: 20px;
+}

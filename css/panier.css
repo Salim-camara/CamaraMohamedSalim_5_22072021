@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  background-color: rgba(198, 199, 196, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@font-face {
+  font-family: logo;
+  src: url("../fonts/RockSalt-Regular.ttf");
+}
+@font-face {
+  font-family: raleway;
+  src: url("../fonts/Raleway-Regular.ttf");
+}
+@font-face {
+  font-family: raleway-bold;
+  src: url("../fonts/Raleway-Bold.ttf");
+}
+body {
+  font-family: raleway;
+}
+
+h1 {
+  font-family: logo;
+  font-size: 50px;
+}
+
+h2 {
+  font-family: raleway-bold;
+}
+
+.panier {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-items: center;
+  background-color: #353B3C;
+  color: white;
+  padding: 10px;
+  margin-bottom: 60px;
+  border-radius: 10px 10px 10px 10px;
+  width: 60%;
+}
+.panier--title {
+  margin-bottom: 0px;
+}
+.panier--content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.panier--line {
+  background-color: #A2999E;
+  width: 100%;
+  height: 2px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.panier--empt {
+  border: none;
+  background-color: #A2999E;
+  color: white;
+  border-radius: 10px 10px 10px 10px;
+  height: 40px;
+  font-size: 20px;
+  width: 35%;
+  border: 2px solid #b30000;
+}
+
+.panier--confirm {
+  border: none;
+  background-color: #A2999E;
+  color: white;
+  border-radius: 10px 10px 10px 10px;
+  height: 40px;
+  font-size: 20px;
+  width: 60%;
+  border: 2px solid green;
+}
+
+.panier--elt {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.product {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=panier.css.map */
