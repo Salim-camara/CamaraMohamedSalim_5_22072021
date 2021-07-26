@@ -1,0 +1,29 @@
+form {
+    @include dsc();
+    width: 100%;
+    background-color: rgba(198, 199, 196, 0.6);
+}
+
+label {
+    font-family: raleway-bold;
+    color: $tertiary-color;
+    font-size: 30px;
+    margin: 40px 0 40px 0;
+}
+
+input {
+    margin-bottom: 20px;
+    width: 40%;
+    height: 50px;
+    border: 2px solid $primary-color;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.submit {
+    background-color: green;
+    font-family: raleway-bold;
+    font-size: 20px;
+    color: white;
+    border: none;
+    margin-bottom: 40px;
+}

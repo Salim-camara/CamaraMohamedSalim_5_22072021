@@ -108,4 +108,37 @@ h2 {
   margin-bottom: 20px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(198, 199, 196, 0.6);
+}
+
+label {
+  font-family: raleway-bold;
+  color: #353B3C;
+  font-size: 30px;
+  margin: 40px 0 40px 0;
+}
+
+input {
+  margin-bottom: 20px;
+  width: 40%;
+  height: 50px;
+  border: 2px solid #A2999E;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.submit {
+  background-color: green;
+  font-family: raleway-bold;
+  font-size: 20px;
+  color: white;
+  border: none;
+  margin-bottom: 40px;
+}
+
 /*# sourceMappingURL=panier.css.map */
