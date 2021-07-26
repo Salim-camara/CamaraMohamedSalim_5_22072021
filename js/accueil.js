@@ -66,8 +66,20 @@ fetch(url).then((response) =>
     messErreur.innerHTML = `Oupsss...</br></br> Une erreur s'est produite au niveau du serveur.</br></br> Nature du problème -> ${erreur}`;
 });
 
+// ********************************Panier*************************************
 
+let panier = JSON.parse(localStorage.getItem('products'));
+let icon = document.querySelector('.top_bar--icon');
 
+if (panier == null) {
+    // rien ne se passe
+} else {
+    let bubble = document.createElement('span');
+    bubble.classList.add('bubble');
+    icon.appendChild(bubble);
+
+    bubble.innerHTML = panier.length;
+}
 
 
 

@@ -68,6 +68,27 @@ header {
   z-index: auto;
 }
 
+.top_bar--icon {
+  position: relative;
+}
+
+.bubble {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 25px;
+  height: 25px;
+  background: coral;
+  border-radius: 50%;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 main {
   display: flex;
   justify-content: center;

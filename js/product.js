@@ -123,3 +123,21 @@ fetch(url).then((response) =>
 
 
 
+// ********************************Panier*************************************
+
+let panier = JSON.parse(localStorage.getItem('products'));
+let icon = document.querySelector('.top_bar--icon');
+
+if (panier == null) {
+    // rien ne se passe
+} else {
+    let bubble = document.createElement('span');
+    bubble.classList.add('bubble');
+    icon.appendChild(bubble);
+
+    bubble.innerHTML = panier.length;
+}
+    
+
+
+
