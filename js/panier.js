@@ -3,6 +3,8 @@
 // Récupération du storage,et des différents éléments du DOM
 let panier = JSON.parse(localStorage.getItem('products'));
 let tableauPanier = document.querySelector('.panier--elt');
+let buttonConfirm = document.querySelector('.panier--confirm');
+let buttonEmpt = document.querySelector('.panier--empt');
 
 // Message d'erreur
 let messEmpty = document.createElement('p');
@@ -14,6 +16,7 @@ messEmpty.innerHTML = `Votre panier est vide </br> <strong> <a href="index.html"
 if (panier == null) {
     tableauPanier.appendChild(messEmpty);
 } else {
+    // *********Fin de la création des produits et du total**********
     // Création de différents produits
     for (i = 0; i < panier.length; i++) {
 
@@ -33,5 +36,22 @@ if (panier == null) {
     let total = document.createElement('h3');
     total.classList.add('total');
     tableauPanier.appendChild(total);
-    total.innerHTML = "zebi";
+    let totalPrice = 0;
+    console.log (typeof totalPrice);
+    // Boucle d'addition des prix
+    for (i = 0; i < panier.length; i++) {
+
+        let priceInt = parseInt(panier[i].price);
+        totalPrice = totalPrice + priceInt;
+    }
+    // Injection de tout ça dans le HTML
+    total.innerHTML = `Total : ${totalPrice} €`;
+    // *********Fin de la création des produits et du total**********
+
+    // **********Bouton confirmer************
+    buttonConfirm.addEventListener('click', () => {
+        let display = document.querySelector('form');
+        display.style.display = "flex";
+        console.log('c bon');
+    })
 }

@@ -79,6 +79,11 @@ h2 {
   font-size: 20px;
   width: 35%;
   border: 2px solid #b30000;
+  cursor: pointer;
+  transform: scale(1);
+}
+.panier--empt:hover {
+  transform: scale(1.01);
 }
 
 .panier--confirm {
@@ -90,6 +95,11 @@ h2 {
   font-size: 20px;
   width: 60%;
   border: 2px solid green;
+  cursor: pointer;
+  transform: scale(1);
+}
+.panier--confirm:hover {
+  transform: scale(1.01);
 }
 
 .panier--elt {
@@ -109,7 +119,7 @@ h2 {
 }
 
 form {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
