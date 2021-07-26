@@ -13,7 +13,7 @@ messEmpty.innerHTML = `Votre panier est vide </br> <strong> <a href="index.html"
 
 
 // Vérification de la contenance du panier
-if (panier == null) {
+if (panier == null || panier == undefined) {
     tableauPanier.appendChild(messEmpty);
 } else {
     // *********Fin de la création des produits et du total**********
@@ -48,10 +48,20 @@ if (panier == null) {
     total.innerHTML = `Total : ${totalPrice} €`;
     // *********Fin de la création des produits et du total**********
 
+
     // **********Bouton confirmer************
     buttonConfirm.addEventListener('click', () => {
         let display = document.querySelector('form');
         display.style.display = "flex";
         console.log('c bon');
+    }); 
+
+
+    // *********Fin du bouton confirmer********
+    buttonEmpt.addEventListener('click', () => {
+        localStorage.clear();
+        document.location.reload();
     })
+
+
 }
