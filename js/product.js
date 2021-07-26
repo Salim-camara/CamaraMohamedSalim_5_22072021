@@ -1,4 +1,5 @@
 // ************************API**********************************************
+// Les punaises rouges correspondent aux dirfférents IF
 
 // Récupération de l'ID de l'URL
 let urlBrut = document.location.href;
@@ -61,14 +62,48 @@ fetch(url).then((response) =>
         });
         // Ecoute du clique
         button.addEventListener('click', () => {
-            console.log(index);
                 // condition
                 if (index == -2 || index == -1) {
                     let endCard = document.querySelector('.card__second');
                     err.innerHTML = 'Veuillez choisir un objectif';
                     endCard.appendChild(err);
                 } else {
-                    alert('ça marche!');
+                    // Stockage des variables dans le local storage
+                    // nom
+                    let lsName = data.name;
+                    // id
+                    let lsId = id;
+                    // prix
+                    let lsPrice = prix;
+                    // lentille
+                    let lsOption = data.lenses[index];
+                    // création de la variable LS -- conversion du Json au JS
+                    let produitsDansLeLocalStorage = JSON.parse(localStorage.getItem('products'));
+                    // création de l'objet produit
+                    let produit = {
+                        'name': lsName,
+                        'price': lsPrice,
+                        'option': lsOption,
+                        'id': lsId,
+                    };
+
+                    // s'il n'y a RIEN dans le LS
+                    if (produitsDansLeLocalStorage == null) {
+                        produitsDansLeLocalStorage = [];
+                        produitsDansLeLocalStorage.push(produit);
+                        localStorage.setItem('products', JSON.stringify(produitsDansLeLocalStorage));
+                    // s'il y a dans le LS
+                    } else {
+                        produitsDansLeLocalStorage.push(produit);
+                        localStorage.setItem('products', JSON.stringify(produitsDansLeLocalStorage));
+                    }
+
+                    // PopUp
+                    if (confirm('Votre caméra a bien été enregistrer ! Appuyer sur OK pour continuer vos achat, ou ANNULER pour aller au panier')) {
+                        document.location.href="index.html";
+                    } else {
+                        alert('panier indisponible');
+                    }
                 }
             });
         
@@ -76,12 +111,15 @@ fetch(url).then((response) =>
         // Background-image
         let spanBg = document.querySelector(`.card--bg`);
         spanBg.style.backgroundImage = `url('${data.imageUrl}')`;
-    }));
 
 
+    // Ajout du catch 
+    })).catch((error) => {
+        let messErreur = document.createElement('p');
+         messErreur.classList.add('erreur');
+         main.appendChild(messErreur);
+         messErreur.innerHTML = `Oupsss...</br></br> Une erreur s'est produite au niveau du serveur.</br></br> Nature du problème -> ${error}`;
+    });
 
-
-
-// ***********************************Confirmation de la selection*******************************
 
 
