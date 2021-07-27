@@ -10,6 +10,9 @@ let buttonEmpt = document.querySelector('.panier--empt');
 let messEmpty = document.createElement('p');
 messEmpty.innerHTML = `Votre panier est vide </br> <strong> <a href="index.html"> Revenir à la page d'acceuil </a> </strong>`;
 
+// Prix total
+let totalPrice = 0;
+
 
 
 // Vérification de la contenance du panier
@@ -36,7 +39,6 @@ if (panier == null || panier == undefined) {
     let total = document.createElement('h3');
     total.classList.add('total');
     tableauPanier.appendChild(total);
-    let totalPrice = 0;
     console.log (typeof totalPrice);
     // Boucle d'addition des prix
     for (i = 0; i < panier.length; i++) {
@@ -53,7 +55,6 @@ if (panier == null || panier == undefined) {
     buttonConfirm.addEventListener('click', () => {
         let display = document.querySelector('form');
         display.style.display = "flex";
-        console.log('c bon');
     }); 
 
 
@@ -65,3 +66,42 @@ if (panier == null || panier == undefined) {
 
 
 }
+
+
+
+// ****************************Formulaire*****************
+
+
+// Récupération du bouton
+let submit = document.querySelector('.submit');
+
+submit.addEventListener('click', () => {
+    // Récupération des inputs
+    let nom = document.querySelector('.nom').value;
+    let prenom = document.querySelector('.prenom').value;
+    let adresse = document.querySelector('.adresse').value;
+    let ville = document.querySelector('.ville').value;
+    let mail = document.querySelector('.mail').value;
+    let numero = document.querySelector('.numero').value;
+    // récupération de L'id des produits
+    let products = [];
+    
+    if (nom && prenom && adresse && ville && mail && numero != undefined) {
+
+        // Boucle ID produits
+        for (i = 0; i < panier.length; i++) {
+            let panierId = panier[i].id;
+            products.push(panierId);
+        }
+        // Stockage pour la page final
+        localStorage.setItem('price', JSON.stringify(totalPrice));
+        localStorage.setItem('patate', products);
+
+        // Envoie du formulaire et du localstorage
+        let url = ''
+
+
+    } else {
+        
+    }
+});
