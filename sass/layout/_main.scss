@@ -62,10 +62,8 @@ h2 {
         transition: all 0.15s linear;
 
         &:hover {
-            background-color: white;
-            border: 2px solid $primary-color;
-            color: $primary-color;
-            transform: scale(1.05);
+            transform: scale(1.015);
+            background-color: darken($primary-color, 5%);
         }
     }
 }
@@ -99,6 +97,17 @@ h2 {
         animation-iteration-count: infinite;
 
     }
+}
+
+a {
+    @include dsf(center);
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.a_panier:visited {
+    color: inherit;
 }
 
 

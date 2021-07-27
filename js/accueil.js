@@ -46,7 +46,7 @@ fetch(url).then((response) =>
                 <span class="card__second--desc"><strong>Description</strong> : ${data[i].description}</span>
                 <span class="card__second--prix"><strong>prix</strong> : ${prix} <strong>€</strong></span>
             </div>
-            <a href="product.html#${data[i]._id}" class="card--button"> <button class="card--button">Acheter</button> </a>`;
+            <a href="product.html#${data[i]._id}" class="card--button">Acheter</a>`;
 
 
             // Background-image

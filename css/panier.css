@@ -9,6 +9,11 @@ body {
   align-items: center;
 }
 
+a {
+  color: white;
+  text-decoration: underline;
+}
+
 @font-face {
   font-family: logo;
   src: url("../fonts/RockSalt-Regular.ttf");

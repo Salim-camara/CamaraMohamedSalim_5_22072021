@@ -61,3 +61,7 @@ header {
     color: white;
     @include dsc(center);
 }
+
+.a_panier:visited {
+    color: inherit;
+}

@@ -8,6 +8,7 @@ let buttonEmpt = document.querySelector('.panier--empt');
 
 // Message d'erreur
 let messEmpty = document.createElement('p');
+messEmpty.style.textAlign = 'center';
 messEmpty.innerHTML = `Votre panier est vide </br> <strong> <a href="index.html"> Revenir à la page d'acceuil </a> </strong>`;
 
 // Prix total

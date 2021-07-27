@@ -6,3 +6,8 @@ body {
     @include dsc();
 }
 
+a {
+    color: white;
+    text-decoration: underline;
+}
+

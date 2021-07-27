@@ -187,10 +187,8 @@ h2 {
   transition: all 0.15s linear;
 }
 .card--button:hover {
-  background-color: white;
-  border: 2px solid #A2999E;
-  color: #A2999E;
-  transform: scale(1.05);
+  transform: scale(1.015);
+  background-color: #968c91;
 }
 
 .erreur {
@@ -218,6 +216,19 @@ h2 {
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.a_panier:visited {
+  color: inherit;
 }
 
 footer {

@@ -47,6 +47,10 @@ p {
     text-align: center;
 }
 
+h1 {
+    text-align: center;
+}
+
 button {
     height: 40px;
     width: 80%;
@@ -63,4 +67,8 @@ button {
 
 button:hover {
     transform: scale(1.01);
+}
+
+.a_panier:visited {
+    color: inherit;
 }

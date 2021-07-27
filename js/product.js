@@ -102,7 +102,7 @@ fetch(url).then((response) =>
                     if (confirm('Votre caméra a bien été enregistrer ! Appuyer sur OK pour continuer vos achat, ou ANNULER pour aller au panier')) {
                         document.location.href="index.html";
                     } else {
-                        alert('panier indisponible');
+                        document.location.href="panier.html";
                     }
                 }
             });
