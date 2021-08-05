@@ -68,7 +68,3 @@ button {
 button:hover {
     transform: scale(1.01);
 }
-
-.a_panier:visited {
-    color: inherit;
-}

@@ -2,8 +2,9 @@
 // Les punaises rouges correspondent aux dirfférents IF
 
 // Récupération de l'ID de l'URL
-let urlBrut = document.location.href;
-let id = urlBrut.slice(35);
+let urlBrut = document.location.hash;
+let id = urlBrut.slice(1);
+console.log(id);
 
 // URL à aller chercher
 let url = `http://localhost:3000/api/cameras/${id}`;
@@ -14,7 +15,7 @@ fetch(url).then((response) =>
     response.json().then((data) => {
 
         // Suppression des 0 à la fin des prix
-        let prix = `${data.price}`.slice(0, -2);
+        let prix = data.price.toString().slice(0, -2);
     
         // Construction de l'HTML
         let card = document.createElement('div');
@@ -27,7 +28,7 @@ fetch(url).then((response) =>
             <span class="card__second--prix"><strong>Prix</strong> : ${prix}<strong>€</strong></span>
             <form>
                 <select class="card__second--select">
-                    <option value="default">Choisir un objectif<option>
+                    <option value="default">Choisir un objectif</option>
                 </select>
             </form>
         </div>
@@ -44,7 +45,7 @@ fetch(url).then((response) =>
             select.appendChild(option);
 
             // Construction de l'option
-            option.innerHTML = `${data.lenses[i]}`;
+            option.innerHTML = data.lenses[i];
             select.appendChild(option);
         }
 
@@ -58,7 +59,8 @@ fetch(url).then((response) =>
 
         select.addEventListener('change', () => {
             err.remove();
-            index = `${select.selectedIndex} `- 2;
+            index = `${select.selectedIndex}` - 1;
+            console.log(index);
         });
         // Ecoute du clique
         button.addEventListener('click', () => {
@@ -81,10 +83,10 @@ fetch(url).then((response) =>
                     let produitsDansLeLocalStorage = JSON.parse(localStorage.getItem('products'));
                     // création de l'objet produit
                     let produit = {
-                        'name': lsName,
-                        'price': lsPrice,
-                        'option': lsOption,
-                        'id': lsId,
+                        name: lsName,
+                        price: lsPrice,
+                        option: lsOption,
+                        id: lsId,
                     };
 
                     // s'il n'y a RIEN dans le LS

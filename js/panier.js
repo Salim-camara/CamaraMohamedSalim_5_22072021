@@ -40,7 +40,6 @@ if (panier == null || panier == undefined) {
     let total = document.createElement('h3');
     total.classList.add('total');
     tableauPanier.appendChild(total);
-    console.log (typeof totalPrice);
     // Boucle d'addition des prix
     for (i = 0; i < panier.length; i++) {
 
@@ -77,32 +76,52 @@ if (panier == null || panier == undefined) {
 let submit = document.querySelector('.submit');
 
 submit.addEventListener('click', () => {
+
+    event.preventDefault();
     // Récupération des inputs
     let nom = document.querySelector('.nom').value;
     let prenom = document.querySelector('.prenom').value;
     let adresse = document.querySelector('.adresse').value;
     let ville = document.querySelector('.ville').value;
     let mail = document.querySelector('.mail').value;
-    let numero = document.querySelector('.numero').value;
-    // récupération de L'id des produits
-    let products = [];
+
+    // Récupération de L'id des produits
+    let produits = [];
+    for (i = 0; i < panier.length; i++) {
+        produits.push(panier[i].id);
+    };
+
+    // Création de l'objet à envoyer
+    const order = {
+        contact: {
+          "firstName": nom,
+          "lastName": prenom,
+          "city": ville,
+          "address": adresse,
+          "email": mail,
+        },
+        products: produits,
+    };
+
+    // Création de l'option, pour plus de lisibilité
+    const options = {
+        method: "POST",
+        body: JSON.stringify(order),
+        headers: { "Content-Type": "application/json" },
+    };  
+
+    // Envoie vers le server avec la méthode fetch
+    fetch('http://localhost:3000/api/cameras/order', options)
+    .then((response) => response.json())
+        .then((data) => {
+            // Récupération de la data, stockage de l'ID dans le localStorage
+            localStorage.removeItem('orderId'); 
+            localStorage.setItem('orderId', data.orderId);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+
     
-    if (nom && prenom && adresse && ville && mail && numero != undefined) {
-
-        // Boucle ID produits
-        for (i = 0; i < panier.length; i++) {
-            let panierId = panier[i].id;
-            products.push(panierId);
-        }
-        // Stockage pour la page final
-        localStorage.setItem('price', JSON.stringify(totalPrice));
-        localStorage.setItem('patate', products);
-
-        // Envoie du formulaire et du localstorage
-        let url = ''
-
-
-    } else {
-        
-    }
+    
 });
