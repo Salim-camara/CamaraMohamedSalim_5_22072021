@@ -92,8 +92,6 @@ submit.addEventListener('click', () => {
     && /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(ville) 
     && /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(mail)
     && /^[a-zA-Z0-9\s,'-]*$/.test(adresse)) {
-
-        console.log('hello :)');
         
         // Récupération de L'id des produits
         let produits = [];
@@ -127,6 +125,12 @@ submit.addEventListener('click', () => {
                 // Récupération de la data, stockage de l'ID dans le localStorage
                 localStorage.removeItem('orderId'); 
                 localStorage.setItem('orderId', data.orderId);
+
+                // Stockage du prix dans le LS
+                localStorage.setItem('price', totalPrice);
+
+                // Redirection vers la page finale
+                document.location.href="confirm.html";
             })
             .catch((err) => {
                 console.log(err);

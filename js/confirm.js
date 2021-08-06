@@ -1,39 +1,23 @@
 // *****************Retour à l'accueil*************
 let button = document.querySelector('button');
 
-let nom = 'tomate';
-let prenom = 'patate';
-let adresse = 'saucisse';
-let ville = 'spaghetti';
-let mail = 'haricot';
-let numero = 'courgette';
+// Récupération des éléments du LS
+let price = localStorage.price;
+let id = localStorage.orderId;
 
-const order = {
-    contact: {
-      "firstName": nom,
-      "lastName": prenom,
-      "city": ville,
-      "address": adresse,
-      "email": mail,
-    },
-    products: ["5be1ed3f1c9d44000030b061"],
-  };
+// crétation du P avec les variables
+let text = document.querySelector('p');
+text.innerHTML = `Merci pour votre confiance, votre numéro de commade est:</br><strong> ${id}</strong>,</br> pour un prix total de <strong>${price} €</strong>.`
 
-const options = {
-    method: "POST",
-    body: JSON.stringify(order),
-    headers: { "Content-Type": "application/json" },
-};
+
 
 
 
 button.addEventListener('click', () => {
-    
-    fetch('http://localhost:3000/api/cameras/order', options)
-    .then((response) => response.json())
-        .then((data) => {
-          localStorage.clear();
-          console.log(data)
-          localStorage.setItem("orderId", data.orderId);
 
-        })});
+  // Nettoyage du LS
+  localStorage.clear();
+
+  // Retoure vers la page d'accueil
+  document.location.href = 'index.html';
+});
