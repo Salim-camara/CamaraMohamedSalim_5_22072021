@@ -77,6 +77,7 @@ let submit = document.querySelector('.submit');
 
 submit.addEventListener('click', () => {
 
+    // Suppression de l'erreur
     event.preventDefault();
     // Récupération des inputs
     let nom = document.querySelector('.nom').value;
@@ -85,42 +86,71 @@ submit.addEventListener('click', () => {
     let ville = document.querySelector('.ville').value;
     let mail = document.querySelector('.mail').value;
 
-    // Récupération de L'id des produits
-    let produits = [];
-    for (i = 0; i < panier.length; i++) {
-        produits.push(panier[i].id);
-    };
+    // Mise en place des RexExp pour tester le formulaire
+    if (/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(nom) 
+    && /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(prenom) 
+    && /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(ville) 
+    && /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(mail)
+    && /^[a-zA-Z0-9\s,'-]*$/.test(adresse)) {
 
-    // Création de l'objet à envoyer
-    const order = {
-        contact: {
-          "firstName": nom,
-          "lastName": prenom,
-          "city": ville,
-          "address": adresse,
-          "email": mail,
-        },
-        products: produits,
-    };
+        console.log('hello :)');
+        
+        // Récupération de L'id des produits
+        let produits = [];
+        for (i = 0; i < panier.length; i++) {
+            produits.push(panier[i].id);
+        };
 
-    // Création de l'option, pour plus de lisibilité
-    const options = {
-        method: "POST",
-        body: JSON.stringify(order),
-        headers: { "Content-Type": "application/json" },
-    };  
+        // Création de l'objet à envoyer
+        const order = {
+            contact: {
+            "firstName": nom,
+            "lastName": prenom,
+            "city": ville,
+            "address": adresse,
+            "email": mail,
+            },
+            products: produits,
+        };
 
-    // Envoie vers le server avec la méthode fetch
-    fetch('http://localhost:3000/api/cameras/order', options)
-    .then((response) => response.json())
-        .then((data) => {
-            // Récupération de la data, stockage de l'ID dans le localStorage
-            localStorage.removeItem('orderId'); 
-            localStorage.setItem('orderId', data.orderId);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+        // Création de l'option, pour plus de lisibilité
+        const options = {
+            method: "POST",
+            body: JSON.stringify(order),
+            headers: { "Content-Type": "application/json" },
+        };  
+
+        // Envoie vers le server avec la méthode fetch
+        fetch('http://localhost:3000/api/cameras/order', options)
+        .then((response) => response.json())
+            .then((data) => {
+                // Récupération de la data, stockage de l'ID dans le localStorage
+                localStorage.removeItem('orderId'); 
+                localStorage.setItem('orderId', data.orderId);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+
+    } else if (document.querySelector('.errForm') != null || document.querySelector('.errForm') != undefined) {
+        document.querySelector('.errForm').remove();
+        let form = document.querySelector('form');
+        let errForm = document.createElement('p');
+        errForm.innerHTML = 'Veuillez correctement remplir le formualire svp :)';
+        errForm.style.color = 'red';
+        errForm.classList.add('errForm');
+        form.appendChild(errForm);
+
+    } else {
+        let form = document.querySelector('form');
+        let errForm = document.createElement('p');
+        errForm.innerHTML = 'Veuillez correctement remplir le formualire svp :)';
+        errForm.style.color = 'red';
+        errForm.classList.add('errForm');
+        form.appendChild(errForm);
+    }
+
+    
 
     
     
