@@ -85,74 +85,69 @@ submit.addEventListener('click', () => {
     let adresse = document.querySelector('.adresse').value;
     let ville = document.querySelector('.ville').value;
     let mail = document.querySelector('.mail').value;
+    console.log(adresse);
 
-    // Mise en place des RexExp pour tester le formulaire
-    if (/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(nom) 
-    && /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(prenom) 
-    && /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(ville) 
-    && /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(mail)
-    && /^[a-zA-Z0-9\s,'-]*$/.test(adresse)) {
-        
-        // Récupération de L'id des produits
-        let produits = [];
-        for (i = 0; i < panier.length; i++) {
-            produits.push(panier[i].id);
-        };
+    // Récupération de P pour afficher les messages d'erreurs
+    let errNom = document.querySelector('.p--nom');
+    let errPrenom = document.querySelector('.p--prenom');
+    let errAdresse = document.querySelector('.p--adresse');
+    let errVille = document.querySelector('.p--ville');
+    let errMail = document.querySelector('.p--mail');
 
-        // Création de l'objet à envoyer
-        const order = {
-            contact: {
-            "firstName": nom,
-            "lastName": prenom,
-            "city": ville,
-            "address": adresse,
-            "email": mail,
-            },
-            products: produits,
-        };
+    // Initialisation des variables pour tester si tous les formulaires sont bon
+    let testNom = null;
+    let testPrenom = null;
+    let testAdresse = null;
+    let testVille = null;
+    let testMail = null;
 
-        // Création de l'option, pour plus de lisibilité
-        const options = {
-            method: "POST",
-            body: JSON.stringify(order),
-            headers: { "Content-Type": "application/json" },
-        };  
-
-        // Envoie vers le server avec la méthode fetch
-        fetch('http://localhost:3000/api/cameras/order', options)
-        .then((response) => response.json())
-            .then((data) => {
-                // Récupération de la data, stockage de l'ID dans le localStorage
-                localStorage.removeItem('orderId'); 
-                localStorage.setItem('orderId', data.orderId);
-
-                // Stockage du prix dans le LS
-                localStorage.setItem('price', totalPrice);
-
-                // Redirection vers la page finale
-                document.location.href="confirm.html";
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-
-    } else if (document.querySelector('.errForm') != null || document.querySelector('.errForm') != undefined) {
-        document.querySelector('.errForm').remove();
-        let form = document.querySelector('form');
-        let errForm = document.createElement('p');
-        errForm.innerHTML = 'Veuillez correctement remplir le formualire svp :)';
-        errForm.style.color = 'red';
-        errForm.classList.add('errForm');
-        form.appendChild(errForm);
-
+    // $$$$$$$$$$$$$$$$$$$$$$---test de chaque champ du formulaire---$$$$$$$$$$$$
+    // NOM
+    if (/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(nom)) {
+        errNom.innerHTML = '';
+        testNom = true;
     } else {
-        let form = document.querySelector('form');
-        let errForm = document.createElement('p');
-        errForm.innerHTML = 'Veuillez correctement remplir le formualire svp :)';
-        errForm.style.color = 'red';
-        errForm.classList.add('errForm');
-        form.appendChild(errForm);
+        errNom.innerHTML = 'Veuillez saisir un nom valide';
+        errNom.style.color = 'red';
     }
+
+    // PRENOM
+    if (/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(prenom)) {
+        errPrenom.innerHTML = '';
+        testPrenom = true;
+    } else {
+        errPrenom.innerHTML = 'Veuillez saisir un prénom valide';
+        errPrenom.style.color = 'red';
+    }
+
+    // ADRESSE
+    if (/^\d+\s[A-z]+\s[A-z]+/.test(adresse)) {
+        errAdresse.innerHTML = '';
+        testAdresse = true;
+    } else {
+        errAdresse.innerHTML = 'Veuillez saisir un adresse valide';
+        errAdresse.style.color = 'red';
+    }
+
+    // VILLE
+    if (/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(ville)) {
+        errVille.innerHTML = '';
+        testVille = true;
+    } else {
+        errVille.innerHTML = 'Veuillez saisir une ville valide';
+        errVille.style.color = 'red';
+    }
+
+    // MAIL
+    if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(mail)) {
+        errMail.innerHTML = '';
+        testMail = true;
+    } else {
+        errMail.innerHTML = 'Veuillez saisir une adresse mail valide';
+        errMail.style.color = 'red';
+    }
+
+    console.log(testNom, testPrenom, testVille, testAdresse, testMail);
 
     
 
