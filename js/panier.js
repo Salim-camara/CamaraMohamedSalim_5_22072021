@@ -55,6 +55,7 @@ if (panier == null || panier == undefined) {
     buttonConfirm.addEventListener('click', () => {
         let display = document.querySelector('form');
         display.style.display = "flex";
+        document.querySelector('#scroll').scrollIntoView();
     }); 
 
 
@@ -85,7 +86,6 @@ submit.addEventListener('click', () => {
     let adresse = document.querySelector('.adresse').value;
     let ville = document.querySelector('.ville').value;
     let mail = document.querySelector('.mail').value;
-    console.log(adresse);
 
     // Récupération de P pour afficher les messages d'erreurs
     let errNom = document.querySelector('.p--nom');
@@ -147,7 +147,55 @@ submit.addEventListener('click', () => {
         errMail.style.color = 'red';
     }
 
-    console.log(testNom, testPrenom, testVille, testAdresse, testMail);
+    // Confirmation de la commande si tous les champs sont correctement remplis
+    if (testNom, testPrenom, testAdresse, testVille, testMail == true) {
+
+        // Récupération de L'id des produits
+        let produits = [];
+        for (i = 0; i < panier.length; i++) {
+            produits.push(panier[i].id);
+        };
+
+        // Création de l'objet à envoyer
+        const order = {
+            contact: {
+            "firstName": nom,
+            "lastName": prenom,
+            "city": ville,
+            "address": adresse,
+            "email": mail,
+            },
+            products: produits,
+        };
+
+        // Création de l'option, pour plus de lisibilité
+        const options = {
+            method: "POST",
+            body: JSON.stringify(order),
+            headers: { "Content-Type": "application/json" },
+        };  
+
+        // Envoie vers le server avec la méthode fetch
+        fetch('http://localhost:3000/api/cameras/order', options)
+        .then((response) => response.json())
+            .then((data) => {
+                // Récupération de la data, stockage de l'ID dans le localStorage
+                localStorage.removeItem('orderId'); 
+                localStorage.setItem('orderId', data.orderId);
+
+                // Stockage du prix dans le LS
+                localStorage.setItem('price', totalPrice);
+
+                // Redirection vers la page finale
+                document.location.href="confirm.html";
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+
+    } else {
+        console.log('il y a une erreur');
+    }
 
     
 
