@@ -65,7 +65,6 @@ if (panier == null || panier == undefined) {
         document.location.reload();
     })
 
-
 }
 
 
@@ -76,10 +75,64 @@ if (panier == null || panier == undefined) {
 // Récupération du bouton
 let submit = document.querySelector('.submit');
 
-submit.addEventListener('click', () => {
+submit.addEventListener('click', (e) => {
 
     // Suppression de l'erreur
-    event.preventDefault();
+    e.preventDefault();
+
+    // Création des variables de test 
+    let testNom = null;
+    let testPrenom = null;
+    let testVille = null;
+    let testAdresse = null;
+    let testMail = null;
+
+    // Création du tableau d'objet de test
+    const REGEX = [
+        {
+            element: '.nom',
+            regex: /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/,
+            error: '.p--nom',
+        },
+        {
+            element: '.prenom',
+            regex: /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/,
+            error: '.p--prenom',
+        },
+        {
+            element: '.ville',
+            regex: /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/,
+            error: '.p--ville',
+        },
+        {
+            element: '.adresse',
+            regex: /^(\d+) ?([A-Za-z](?= ))? (.*?) ([^ ]+?) ?((?<= )APT)? ?((?<= )\d*)?$/,
+            error: '.p--adresse',
+        },
+        {
+            element: '.mail',
+            regex: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+            error: '.p--mail',
+        }
+    ];
+
+    // initialisation de la variable de validation
+    let allTest = true;
+
+    // $$$$$$$$$$$$$$$$$$$$$$---Création de la boucle de test de chaque champ---$$$$$$$$$$$$
+    for (const rule of REGEX) {
+        // récupération du champ
+        const element = document.querySelector(rule.element).value;
+        const err = document.querySelector(rule.error);
+        // création de la condition
+        if (rule.regex.test(element) === true) {
+            err.style.display = 'none';
+        } else {
+            allTest = false;
+            err.style.display = 'block';
+        }
+    }
+
     // Récupération des inputs
     let nom = document.querySelector('.nom').value;
     let prenom = document.querySelector('.prenom').value;
@@ -87,68 +140,10 @@ submit.addEventListener('click', () => {
     let ville = document.querySelector('.ville').value;
     let mail = document.querySelector('.mail').value;
 
-    // Récupération de P pour afficher les messages d'erreurs
-    let errNom = document.querySelector('.p--nom');
-    let errPrenom = document.querySelector('.p--prenom');
-    let errAdresse = document.querySelector('.p--adresse');
-    let errVille = document.querySelector('.p--ville');
-    let errMail = document.querySelector('.p--mail');
-
-    // Initialisation des variables pour tester si tous les formulaires sont bon
-    let testNom = null;
-    let testPrenom = null;
-    let testAdresse = null;
-    let testVille = null;
-    let testMail = null;
-
-    // $$$$$$$$$$$$$$$$$$$$$$---test de chaque champ du formulaire---$$$$$$$$$$$$
-    // NOM
-    if (/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(nom)) {
-        errNom.innerHTML = '';
-        testNom = true;
-    } else {
-        errNom.innerHTML = 'Veuillez saisir un nom valide';
-        errNom.style.color = 'red';
-    }
-
-    // PRENOM
-    if (/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(prenom)) {
-        errPrenom.innerHTML = '';
-        testPrenom = true;
-    } else {
-        errPrenom.innerHTML = 'Veuillez saisir un prénom valide';
-        errPrenom.style.color = 'red';
-    }
-
-    // ADRESSE
-    if (/^\d+\s[A-z]+\s[A-z]+/.test(adresse)) {
-        errAdresse.innerHTML = '';
-        testAdresse = true;
-    } else {
-        errAdresse.innerHTML = 'Veuillez saisir un adresse valide';
-        errAdresse.style.color = 'red';
-    }
-
-    // VILLE
-    if (/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(ville)) {
-        errVille.innerHTML = '';
-        testVille = true;
-    } else {
-        errVille.innerHTML = 'Veuillez saisir une ville valide';
-        errVille.style.color = 'red';
-    }
-
-    // MAIL
-    if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(mail)) {
-        errMail.innerHTML = '';
-        testMail = true;
-    } else {
-        errMail.innerHTML = 'Veuillez saisir une adresse mail valide';
-        errMail.style.color = 'red';
-    }
+    
 
     // Confirmation de la commande si tous les champs sont correctement remplis
-    if (testNom, testPrenom, testAdresse, testVille, testMail == true) {
+    if (allTest === true) {
 
         // Récupération de L'id des produits
         let produits = [];

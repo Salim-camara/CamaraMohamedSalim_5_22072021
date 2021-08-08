@@ -160,4 +160,29 @@ input {
   margin-bottom: 40px;
 }
 
+.p--nom {
+  color: red;
+  display: none;
+}
+
+.p--prenom {
+  color: red;
+  display: none;
+}
+
+.p--ville {
+  color: red;
+  display: none;
+}
+
+.p--mail {
+  color: red;
+  display: none;
+}
+
+.p--adresse {
+  color: red;
+  display: none;
+}
+
 /*# sourceMappingURL=panier.css.map */

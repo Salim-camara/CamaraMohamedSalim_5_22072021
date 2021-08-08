@@ -4,7 +4,6 @@
 // Récupération de l'ID de l'URL
 let urlBrut = document.location.hash;
 let id = urlBrut.slice(1);
-console.log(id);
 
 // URL à aller chercher
 let url = `http://localhost:3000/api/cameras/${id}`;
