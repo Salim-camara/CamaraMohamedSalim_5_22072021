@@ -24,8 +24,7 @@ let loader = document.querySelector('.loader');
 
 
 // Appel de l'API
-fetch(url).then((response) =>
-    response.json().then((data) => {
+API().then((data) => {
 
         // Supperssion du loader
         loader.style.display = "none";
@@ -55,7 +54,7 @@ fetch(url).then((response) =>
 }
 )
 // En cas de problème
-).catch((erreur) => {
+.catch((erreur) => {
 
     // Suppression du spin loader
     loader.style.display = "none";

@@ -10,8 +10,7 @@ let url = `http://localhost:3000/api/cameras/${id}`;
 let main = document.querySelector('.main');
 
 // Appel de l'API
-fetch(url).then((response) =>
-    response.json().then((data) => {
+API(`/${id}`).then((data) => {
 
         // Suppression des 0 à la fin des prix
         let prix = data.price.toString().slice(0, -2);
@@ -115,7 +114,7 @@ fetch(url).then((response) =>
 
 
     // Ajout du catch 
-    })).catch((error) => {
+    }).catch((error) => {
         let messErreur = document.createElement('p');
          messErreur.classList.add('erreur');
          main.appendChild(messErreur);

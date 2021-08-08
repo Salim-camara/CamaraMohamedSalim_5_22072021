@@ -80,13 +80,6 @@ submit.addEventListener('click', (e) => {
     // Suppression de l'erreur
     e.preventDefault();
 
-    // Création des variables de test 
-    let testNom = null;
-    let testPrenom = null;
-    let testVille = null;
-    let testAdresse = null;
-    let testMail = null;
-
     // Création du tableau d'objet de test
     const REGEX = [
         {
@@ -171,8 +164,7 @@ submit.addEventListener('click', (e) => {
         };  
 
         // Envoie vers le server avec la méthode fetch
-        fetch('http://localhost:3000/api/cameras/order', options)
-        .then((response) => response.json())
+        API('/order', options)
             .then((data) => {
                 // Récupération de la data, stockage de l'ID dans le localStorage
                 localStorage.removeItem('orderId'); 
@@ -182,6 +174,7 @@ submit.addEventListener('click', (e) => {
                 localStorage.setItem('price', totalPrice);
 
                 // Redirection vers la page finale
+                console.log(data);
                 document.location.href="confirm.html";
             })
             .catch((err) => {
