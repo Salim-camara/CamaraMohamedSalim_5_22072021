@@ -55,3 +55,12 @@ input {
     color: red;
     display: none;
 }
+
+// VERSION MOBILE 
+
+@media screen and (max-width: 768px) {
+    input {
+        width: 90%;
+    }
+    
+}

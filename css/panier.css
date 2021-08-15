@@ -90,6 +90,7 @@ h2 {
   border: 2px solid #b30000;
   cursor: pointer;
   transform: scale(1);
+  overflow: hidden;
 }
 .panier--empt:hover {
   transform: scale(1.01);
@@ -106,6 +107,7 @@ h2 {
   border: 2px solid green;
   cursor: pointer;
   transform: scale(1);
+  overflow: hidden;
 }
 .panier--confirm:hover {
   transform: scale(1.01);
@@ -127,6 +129,17 @@ h2 {
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  .panier {
+    width: 90%;
+  }
+  .panier--confirm {
+    font-size: 15px;
+  }
+  .panier--empt {
+    font-size: 15px;
+  }
+}
 form {
   display: none;
   flex-direction: column;
@@ -183,6 +196,12 @@ input {
 .p--adresse {
   color: red;
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  input {
+    width: 90%;
+  }
 }
 
 /*# sourceMappingURL=panier.css.map */

@@ -45,6 +45,7 @@
     border: 2px solid darken(red, 15%);
     cursor: pointer;
     transform: scale(1);
+    overflow: hidden;
 
     &:hover {
         transform: scale(1.01);
@@ -62,6 +63,7 @@
     border: 2px solid green;
     cursor: pointer;
     transform: scale(1);
+    overflow: hidden;
 
     &:hover {
         transform: scale(1.01);
@@ -78,4 +80,22 @@
     @include dsf(space-between);
     width: 100%;
     margin-bottom: 20px;
+}
+
+// VERSION MOBILE   
+
+@media screen and (max-width: 768px) {
+
+    .panier {
+        width: 90%;
+
+        &--confirm {
+            font-size: 15px;
+        }
+        &--empt {
+            font-size: 15px;
+        }
+    }
+
+    
 }
