@@ -91,18 +91,18 @@ API(`/${id}`).then((data) => {
                     if (produitsDansLeLocalStorage == null) {
                         produitsDansLeLocalStorage = [];
                         produitsDansLeLocalStorage.push(produit);
-                        localStorage.setItem('products', JSON.stringify(produitsDansLeLocalStorage));
+                        SETLS('products', JSON.stringify(produitsDansLeLocalStorage));
                     // s'il y a dans le LS
                     } else {
                         produitsDansLeLocalStorage.push(produit);
-                        localStorage.setItem('products', JSON.stringify(produitsDansLeLocalStorage));
+                        SETLS('products', JSON.stringify(produitsDansLeLocalStorage));
                     }
 
                     // PopUp
                     if (confirm('Votre caméra a bien été enregistrer ! Appuyer sur OK pour continuer vos achat, ou ANNULER pour aller au panier')) {
-                        document.location.href="index.html";
+                        NAVIGAT("index.html");
                     } else {
-                        document.location.href="panier.html";
+                        NAVIGAT("panier.html");
                     }
                 }
             });

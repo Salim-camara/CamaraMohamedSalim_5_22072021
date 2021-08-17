@@ -168,14 +168,14 @@ submit.addEventListener('click', (e) => {
             .then((data) => {
                 // Récupération de la data, stockage de l'ID dans le localStorage
                 localStorage.removeItem('orderId'); 
-                localStorage.setItem('orderId', data.orderId);
+                SETLS('orderId', data.orderId);
 
                 // Stockage du prix dans le LS
-                localStorage.setItem('price', totalPrice);
+                SETLS('price', totalPrice);
 
                 // Redirection vers la page finale
                 console.log(data);
-                document.location.href="confirm.html";
+                NAVIGAT("confirm.html");
             })
             .catch((err) => {
                 console.log(err);

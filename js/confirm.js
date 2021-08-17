@@ -19,5 +19,5 @@ button.addEventListener('click', () => {
   localStorage.clear();
 
   // Retoure vers la page d'accueil
-  document.location.href = 'index.html';
+  NAVIGAT("index.html");
 });
