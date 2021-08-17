@@ -6,8 +6,13 @@
   "scripts": {
     "sass_accueil": "sass --watch ./sass/main.scss:./css/accueil.css",
     "sass_product": "sass --watch ./sass_product/main.scss:./css/product.css",
-    "sass_panier": "sass --watch ./sass_panier/main.scss:./css/panier.css"
+    "sass_panier": "sass --watch ./sass_panier/main.scss:./css/panier.css",
+    "prefix": "postcss ./css/accueil.css --use autoprefixer -d ./css",
+    "prefix_product": "postcss ./css/product.css --use autoprefixer -d ./css",
+    "prefix_panier": "postcss ./css/panier.css --use autoprefixer -d ./css",
+    "prefix_confirm": "postcss ./css/confirm.css --use autoprefixer -d ./css"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "browserslist": "last 4 versions"
 }

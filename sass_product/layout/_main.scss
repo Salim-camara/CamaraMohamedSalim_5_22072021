@@ -109,3 +109,21 @@ h2 {
 
     }
 }
+
+// VERSION MOBILE ET TABLETTE   
+
+@media screen and (max-width: 991px) {
+
+    .card {
+        width: 50%;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+
+    .card {
+        width: 70%;
+    }
+    
+}

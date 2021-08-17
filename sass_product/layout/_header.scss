@@ -10,7 +10,8 @@ header {
     @include dsf(space-between);
     padding-right: 50px;
     color: $tertiary-color;
-    background-color: transparent;
+    background-color: #fff;
+    box-shadow: 0 4px 2px -2px gray;
 
     transition: all 0.5s;
 

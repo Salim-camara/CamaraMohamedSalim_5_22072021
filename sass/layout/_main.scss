@@ -111,5 +111,27 @@ a {
 }
 
 
+// VERSION MOBILE
+
+@media screen and (max-width: 768px) {
+
+
+    .card {
+        width: 90%;
+    }
+
+    // .card {
+
+    //     &__second {
+    //         &--desc {
+    //             background-color: red;
+    //             display: none;
+    //         }
+    //     }
+    // }
+    
+}
+
+
 
 
